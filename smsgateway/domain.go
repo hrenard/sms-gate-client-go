@@ -79,8 +79,3 @@ type RecipientState struct {
 	State       ProcessingState `json:"state" validate:"required" example:"Pending"`                          // State
 	Error       *string         `json:"error,omitempty" example:"timeout"`                                    // Error (for `Failed` state)
 }
-
-// Push notification
-type PushNotification struct {
-	Token string `json:"token" validate:"required" example:"PyDmBQZZXYmyxMwED8Fzy"` // Device FCM token
-}
