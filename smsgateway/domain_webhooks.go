@@ -6,6 +6,8 @@ type WebhookEvent string
 const (
 	// Triggered when an SMS is received.
 	WebhookEventSmsReceived WebhookEvent = "sms:received"
+	// Triggered when the device pings the server.
+	WebhookEventSystemPing WebhookEvent = "system:ping"
 )
 
 // A webhook configuration.
