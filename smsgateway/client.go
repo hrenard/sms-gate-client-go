@@ -88,6 +88,19 @@ func (c *Client) DeleteWebhook(ctx context.Context, webhookID string) error {
 	return nil
 }
 
+// ListDevices retrieves all registered devices in the account.
+// Returns a slice of Device objects or an error if the request fails.
+func (c *Client) ListDevices(ctx context.Context) ([]Device, error) {
+	path := "/device"
+	resp := []Device{}
+
+	if err := c.Do(ctx, http.MethodGet, path, c.headers, nil, &resp); err != nil {
+		return resp, fmt.Errorf("failed to list devices: %w", err)
+	}
+
+	return resp, nil
+}
+
 // NewClient creates a new instance of the API Client.
 func NewClient(config Config) *Client {
 	if config.BaseURL == "" {
